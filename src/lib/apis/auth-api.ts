@@ -1,22 +1,33 @@
-import { LoginPayload, RegisterPayload, User } from '@/common/types';
+import {
+    LoginPayload,
+    RegisterPayload,
+    User,
+    UserWithToken,
+} from '@/common/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const authApi = createApi({
     reducerPath: 'authApi',
-    baseQuery: fetchBaseQuery({ baseUrl: '/api/v1' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api/v1/auth' }),
     endpoints: (builder) => ({
-        login: builder.mutation<User, LoginPayload>({
+        login: builder.mutation<UserWithToken, LoginPayload>({
             query: (body) => ({
-                url: '/auth/login',
+                url: '/token',
                 method: 'POST',
                 body,
             }),
         }),
-        register: builder.mutation<User, RegisterPayload>({
+        register: builder.mutation<UserWithToken, RegisterPayload>({
             query: (body) => ({
-                url: '/auth/register',
+                url: '/register',
                 method: 'POST',
                 body,
+            }),
+        }),
+        getUser: builder.query<User, void>({
+            query: () => ({
+                url: '/user',
+                method: 'GET',
                 headers: new Headers({
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
                 }),
@@ -25,5 +36,6 @@ const authApi = createApi({
     }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation, useGetUserQuery } =
+    authApi;
 export { authApi };
