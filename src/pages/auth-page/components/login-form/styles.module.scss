@@ -1,0 +1,30 @@
+@use "/src/styles/variables" as *;
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border: 1px solid $color-mute-gray;
+    padding: 60px 40px;
+    background-color: $color-mute-gray-transparent;
+    border-radius: 10px;
+}
+
+.login_form__title {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    color: $color-primary;
+}
+
+.login_form__label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.login_form__button {
+    width: 100%;
+}

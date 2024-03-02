@@ -6,7 +6,7 @@ import { store } from '@/lib/store/store.ts';
 import { RouterProvider } from '@/lib/router/router-provider.tsx';
 
 import '@/styles/index.scss';
-import { MainPage } from '@/pages/index.ts';
+import { AuthPage, MainPage } from '@/pages/index.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         element: <App />,
                         children: [
                             { path: '/', element: <MainPage /> },
-                            // Others
+                            { path: '/login', element: <AuthPage /> },
                         ],
                     },
                 ]}
