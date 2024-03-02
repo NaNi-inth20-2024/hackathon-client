@@ -23,8 +23,15 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 100%;
 }
 
 .login_form__button {
     width: 100%;
+}
+
+.login_form__radio_group {
+    display: flex;
+    gap: 10px;
+    //justify-content: center;
 }
