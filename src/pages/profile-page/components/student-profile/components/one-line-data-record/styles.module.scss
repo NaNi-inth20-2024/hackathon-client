@@ -1,0 +1,15 @@
+@use "/src/styles/variables" as *;
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+}
+
+.highlight {
+    width: fit-content;
+    background: $color-primary;
+    border-radius: 10px;
+    color: $color-black;
+    padding: 0 7px;
+}
