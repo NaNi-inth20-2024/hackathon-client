@@ -19,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         children: [
                             { path: '/', element: <MainPage /> },
                             { path: '/login', element: <AuthPage /> },
+                            { path: '/register', element: <AuthPage /> },
                         ],
                     },
                 ]}

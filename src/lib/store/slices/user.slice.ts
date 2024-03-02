@@ -3,12 +3,10 @@ import { User } from '@/common/types';
 
 type State = {
     user: User | null;
-    token: string | null;
 };
 
 const initialState: State = {
     user: null,
-    token: null,
 };
 
 const userSlice = createSlice({
@@ -18,11 +16,8 @@ const userSlice = createSlice({
         setUser: (state, action) => {
             state.user = action.payload;
         },
-        setToken: (state, action) => {
-            state.token = action.payload;
-        },
     },
 });
 
-export const { setUser, setToken } = userSlice.actions;
+export const { setUser } = userSlice.actions;
 export { userSlice };

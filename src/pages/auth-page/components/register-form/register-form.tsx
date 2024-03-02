@@ -2,6 +2,9 @@ import { Button, Input, Radio } from '@/components';
 
 import styles from '../login-form/styles.module.scss';
 import { useCallback, useRef } from 'react';
+import { useRegisterMutation } from '@/lib/apis';
+import { useAppDispatch } from '@/lib/store/hooks';
+import { setUser } from '@/lib/store/slices/user.slice';
 
 type RegisterPayload = {
     role: 'teacher' | 'student';
@@ -13,6 +16,8 @@ type RegisterPayload = {
 
 const RegisterForm: React.FC = () => {
     const formRef = useRef<HTMLFormElement>(null);
+    const [register] = useRegisterMutation();
+    const dispatch = useAppDispatch();
 
     const handleSubmit = useCallback(
         (event: React.FormEvent<HTMLFormElement>) => {
@@ -21,9 +26,14 @@ const RegisterForm: React.FC = () => {
             const data = Object.fromEntries(
                 formData.entries(),
             ) as RegisterPayload;
-            console.log(data);
+            register(data)
+                .unwrap()
+                .then((user) => {
+                    dispatch(setUser(user.user));
+                    localStorage.setItem('access_token', user.access);
+                });
         },
-        [],
+        [dispatch, register],
     );
 
     return (
