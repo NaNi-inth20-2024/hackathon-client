@@ -2,6 +2,9 @@ import { Button, Input } from '@/components';
 
 import styles from './styles.module.scss';
 import { useCallback, useRef } from 'react';
+import { useLoginMutation } from '@/lib/apis';
+import { useAppDispatch } from '@/lib/store/hooks';
+import { setUser } from '@/lib/store/slices/user.slice';
 
 type LoginPayload = {
     email: string;
@@ -10,15 +13,22 @@ type LoginPayload = {
 
 const LoginForm: React.FC = () => {
     const formRef = useRef<HTMLFormElement>(null);
+    const [login] = useLoginMutation();
+    const dispatch = useAppDispatch();
 
     const handleSubmit = useCallback(
         (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
             const formData = new FormData(formRef.current as HTMLFormElement);
             const data = Object.fromEntries(formData.entries()) as LoginPayload;
-            console.log(data);
+            login(data)
+                .unwrap()
+                .then((user) => {
+                    dispatch(setUser(user.user));
+                    localStorage.setItem('access_token', user.access);
+                });
         },
-        [],
+        [dispatch, login],
     );
 
     return (
