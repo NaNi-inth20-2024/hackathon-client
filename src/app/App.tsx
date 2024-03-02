@@ -1,3 +1,4 @@
+import { Header } from '@/components/header/header';
 import { useGetUserQuery } from '@/lib/apis/auth-api';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { setUser } from '@/lib/store/slices/user.slice';
@@ -16,6 +17,7 @@ function App() {
 
     return (
         <>
+            <Header />
             <Outlet />
         </>
     );

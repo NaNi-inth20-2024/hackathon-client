@@ -179,13 +179,11 @@ const StudentProfile: FC = () => {
                         </li>
                     </ul>
                     <div className={styles.progressCircle}>
-                        <div className={styles.progressCircle}>
-                            <ProgressCircle
-                                value={75}
-                                progressText={`${75}%`}
-                                progressDescription={`Your average grade`}
-                            />
-                        </div>
+                        <ProgressCircle
+                            value={75}
+                            progressText={`${75}%`}
+                            progressDescription={`Your average grade`}
+                        />
                     </div>
                 </div>
             </div>
