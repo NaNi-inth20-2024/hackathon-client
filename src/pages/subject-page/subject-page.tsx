@@ -2,19 +2,21 @@ import { NavMenu } from '@/components/nav-menu/nav-menu';
 import { SubjectInfo } from './components/subject-info/subject-info';
 
 import styles from './styles.module.scss';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
+import { useGetSubjectQuery } from '@/lib/apis/subject-api';
 
 const SubjectPage = () => {
+    const params = useParams<{ id: string }>();
+
+    const { data: subject, isLoading } = useGetSubjectQuery(+params.id!);
+
     return (
         <div className={styles.subject_page}>
-            <SubjectInfo
-                subject={{ id: 1, name: 'Math', year: 2023, semester: 1 }}
-            />
+            {!isLoading && <SubjectInfo subject={subject!} />}
             <NavMenu
                 links={[
-                    { title: 'Info', path: '/subjects/1' },
-                    { title: 'Tasks', path: '/subjects/1/tasks' },
-                    { title: 'Grades', path: '/subjects/1/grades' },
+                    { title: 'Tasks', path: `/subjects/${params.id}/tasks` },
+                    { title: 'Grades', path: `/subjects/${params.id}/grades` },
                 ]}
             />
             <Outlet />

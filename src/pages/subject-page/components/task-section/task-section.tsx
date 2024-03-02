@@ -1,32 +1,26 @@
-import { Task } from '@/common/types';
 import { TaskList } from '../task-list/task-list';
-import { useState } from 'react';
 
 import styles from './styles.module.scss';
 import { Button } from '@/components';
+import { useGetSubjectTasksQuery } from '@/lib/apis/subject-api';
+import { useParams } from 'react-router-dom';
 
 const TaskSection: React.FC = () => {
-    const [tasks] = useState<Task[]>([
-        {
-            id: 1,
-            title: 'Task 1',
-            description: 'Task 1 description',
-        },
-        {
-            id: 2,
-            title: 'Task 2',
-            description: 'Task 2 description',
-        },
-    ]);
+    const params = useParams<{ id: string }>();
+    const { data: tasks, isLoading } = useGetSubjectTasksQuery(+params.id!);
 
     return (
         <div className={styles.task_section}>
             <h2>Tasks</h2>
             <Button>+ New task</Button>
-            <TaskList
-                tasks={tasks}
-                className={styles.task_section__task_list}
-            />
+            {!isLoading && tasks?.length === 0 ? (
+                <p>No tasks</p>
+            ) : (
+                <TaskList
+                    tasks={tasks || []}
+                    className={styles.task_section__task_list}
+                />
+            )}
         </div>
     );
 };

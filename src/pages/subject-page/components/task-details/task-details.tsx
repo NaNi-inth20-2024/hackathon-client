@@ -8,6 +8,9 @@ const TaskDetails = () => {
         id: 1,
         title: 'Task 1',
         description: 'Task 1 description',
+        is_finished: false,
+        max_points: 10,
+        deadline: new Date(),
     });
 
     return (

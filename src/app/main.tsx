@@ -29,16 +29,15 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                             { path: '/register', element: <AuthPage /> },
                             { path: '/students', element: <StudentsPage /> },
                             {
-                                path: '/subjects',
+                                path: '/subjects/:id',
                                 element: <SubjectPage />,
                                 children: [
-                                    { path: '/subjects/:id', element: <></> },
                                     {
                                         path: '/subjects/:id/tasks',
                                         element: <TaskSection />,
                                     },
                                     {
-                                        path: '/subjects/:id/tasks/:id',
+                                        path: '/subjects/:id/tasks/:taskId',
                                         element: <TaskDetails />,
                                     },
                                     {
