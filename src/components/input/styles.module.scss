@@ -1,0 +1,8 @@
+@use "/src//styles/variables" as *;
+
+.input {
+    padding: 5px 10px;
+    border: 1px solid $color-mute-gray;
+    border-radius: 5px;
+    background-color: $color-mute-gray-transparent;
+}

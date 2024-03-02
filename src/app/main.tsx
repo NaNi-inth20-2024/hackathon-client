@@ -6,8 +6,7 @@ import { store } from '@/lib/store/store.ts';
 import { RouterProvider } from '@/lib/router/router-provider.tsx';
 
 import '@/styles/index.scss';
-import { MainPage } from '@/pages/index.ts';
-import ProfilePage from '@/pages/profile-page/profile-page.tsx';
+import { AuthPage, MainPage, ProfilePage } from '@/pages/index.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -20,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         children: [
                             { path: '/', element: <MainPage /> },
                             { path: '/profile', element: <ProfilePage /> },
+                            { path: '/login', element: <AuthPage /> },
                         ],
                     },
                 ]}
