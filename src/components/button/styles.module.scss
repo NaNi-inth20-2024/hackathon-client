@@ -1,0 +1,21 @@
+@use "/src/styles/variables" as *;
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: $color-white;
+    background-color: $color-primary;
+}
+
+.button:hover {
+    background-color: darken($color-primary, 10%);
+}
