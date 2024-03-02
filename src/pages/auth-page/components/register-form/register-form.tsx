@@ -1,34 +1,39 @@
-import { Button, Input } from '@/components';
+import { Button, Input, Radio } from '@/components';
 
-import styles from './styles.module.scss';
+import styles from '../login-form/styles.module.scss';
 import { useCallback, useRef } from 'react';
-import { useLoginMutation } from '@/lib/apis';
+import { useRegisterMutation } from '@/lib/apis';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { setUser } from '@/lib/store/slices/user.slice';
 
-type LoginPayload = {
+type RegisterPayload = {
+    role: 'teacher' | 'student';
+    firstName: string;
+    lastName: string;
     email: string;
     password: string;
 };
 
-const LoginForm: React.FC = () => {
+const RegisterForm: React.FC = () => {
     const formRef = useRef<HTMLFormElement>(null);
-    const [login] = useLoginMutation();
+    const [register] = useRegisterMutation();
     const dispatch = useAppDispatch();
 
     const handleSubmit = useCallback(
         (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
             const formData = new FormData(formRef.current as HTMLFormElement);
-            const data = Object.fromEntries(formData.entries()) as LoginPayload;
-            login(data)
+            const data = Object.fromEntries(
+                formData.entries(),
+            ) as RegisterPayload;
+            register(data)
                 .unwrap()
                 .then((user) => {
                     dispatch(setUser(user.user));
                     localStorage.setItem('access_token', user.access);
                 });
         },
-        [dispatch, login],
+        [dispatch, register],
     );
 
     return (
@@ -38,7 +43,36 @@ const LoginForm: React.FC = () => {
                 ref={formRef}
                 onSubmit={handleSubmit}
             >
-                <h1 className={styles.login_form__title}>Welcome back</h1>
+                <h1 className={styles.login_form__title}>Sign up</h1>
+                <label className={styles.login_form__label}>
+                    Role
+                    <div className={styles.login_form__radio_group}>
+                        <Radio name="role" value="teacher" required />
+                        Teacher
+                        <Radio name="role" value="student" required />
+                        Student
+                    </div>
+                </label>
+                <label className={styles.login_form__label}>
+                    First Name
+                    <Input
+                        type="text"
+                        placeholder="First Name"
+                        name="firstName"
+                        required
+                    />
+                </label>
+
+                <label className={styles.login_form__label}>
+                    Last Name
+                    <Input
+                        type="text"
+                        placeholder="Last Name"
+                        name="lastName"
+                        required
+                    />
+                </label>
+
                 <label className={styles.login_form__label}>
                     Email
                     <Input
@@ -59,11 +93,11 @@ const LoginForm: React.FC = () => {
                     />
                 </label>
                 <Button type="submit" className={styles.login_form__button}>
-                    Login
+                    Sign up
                 </Button>
             </form>
         </div>
     );
 };
 
-export { LoginForm };
+export { RegisterForm };
