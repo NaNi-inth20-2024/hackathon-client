@@ -1,26 +1,23 @@
 @use "/src/styles/variables" as *;
 
 .studentProfile {
+    max-width: 100%;
     background: $color-white;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    // flex-grow: 1;
-    // grid-gap: 10px;
-    // grid-template-columns: 1fr 2fr;
     font-size: 20px;
 }
 
 .studentData {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px 10px 0 10px;
 }
 
 .closestDeadlines {
-    padding-top: 20px;
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -29,13 +26,12 @@
     border-top-style: solid;
     border-top-color: black;
     border-top-width: 3px;
-    max-width: fit-content;
 }
 
 .studentStatistics {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(min(20vw, 100%), 1fr));
     overflow-y: auto;
     max-height: 80vh;
 }
@@ -47,18 +43,18 @@
 .statsAndDeadlines {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    max-width: 100%;
 }
 
 .studentsDataSectionItemsList {
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    max-width: 80vw;
 }
 
 .subjectsList {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 40vh;
+    max-height: 35vh;
 }
