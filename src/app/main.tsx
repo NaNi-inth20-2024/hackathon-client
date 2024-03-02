@@ -7,6 +7,7 @@ import { RouterProvider } from '@/lib/router/router-provider.tsx';
 
 import '@/styles/index.scss';
 import { MainPage } from '@/pages/index.ts';
+import ProfilePage from '@/pages/profile-page/profile-page.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -18,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         element: <App />,
                         children: [
                             { path: '/', element: <MainPage /> },
-                            // Others
+                            { path: '/profile', element: <ProfilePage /> },
                         ],
                     },
                 ]}
