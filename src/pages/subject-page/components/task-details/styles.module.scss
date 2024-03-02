@@ -1,0 +1,36 @@
+@use "/src/styles/variables" as *;
+
+.task_details {
+    display: grid;
+    grid-template-columns: 1fr minmax(100px, 200px);
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.task_details__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 5px;
+    border: 1px solid $color-mute-gray;
+    padding: 20px;
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+}
+
+.task_details__submissions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid $color-mute-gray;
+    align-self: start;
+
+    p {
+        color: $color-mute-gray;
+    }
+}

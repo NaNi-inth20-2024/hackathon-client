@@ -13,6 +13,7 @@ import {
     SubjectPage,
 } from '@/pages/index.ts';
 import { TaskSection } from '@/pages/subject-page/components/task-section/task-section.tsx';
+import { TaskDetails } from '@/pages/subject-page/components/task-details/task-details.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -35,6 +36,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                                     {
                                         path: '/subjects/:id/tasks',
                                         element: <TaskSection />,
+                                    },
+                                    {
+                                        path: '/subjects/:id/tasks/:id',
+                                        element: <TaskDetails />,
                                     },
                                     {
                                         path: '/subjects/:id/grades',

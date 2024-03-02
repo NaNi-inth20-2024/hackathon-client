@@ -2,20 +2,18 @@
 
 .nav_menu {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
 }
 
 .nav_menu__item {
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+
     transition:
         background-color 0.3s ease 0s,
         color 0.3s ease 0s;
 }
 
 .nav_menu__item_active {
-    background-color: $color-primary;
-    color: $color-white;
+    border-bottom: 2px solid $color-primary;
 }
