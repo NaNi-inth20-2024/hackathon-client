@@ -6,7 +6,13 @@ import { store } from '@/lib/store/store.ts';
 import { RouterProvider } from '@/lib/router/router-provider.tsx';
 
 import '@/styles/index.scss';
-import { AuthPage, MainPage, StudentsPage } from '@/pages/index.ts';
+import {
+    AuthPage,
+    MainPage,
+    StudentsPage,
+    SubjectPage,
+} from '@/pages/index.ts';
+import { TaskSection } from '@/pages/subject-page/components/task-section/task-section.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -21,6 +27,21 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                             { path: '/login', element: <AuthPage /> },
                             { path: '/register', element: <AuthPage /> },
                             { path: '/students', element: <StudentsPage /> },
+                            {
+                                path: '/subjects',
+                                element: <SubjectPage />,
+                                children: [
+                                    { path: '/subjects/:id', element: <></> },
+                                    {
+                                        path: '/subjects/:id/tasks',
+                                        element: <TaskSection />,
+                                    },
+                                    {
+                                        path: '/subjects/:id/grades',
+                                        element: <></>,
+                                    },
+                                ],
+                            },
                         ],
                     },
                 ]}

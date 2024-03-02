@@ -1,0 +1,21 @@
+@use "/src/styles/variables" as *;
+
+.nav_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav_menu__item {
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition:
+        background-color 0.3s ease 0s,
+        color 0.3s ease 0s;
+}
+
+.nav_menu__item_active {
+    background-color: $color-primary;
+    color: $color-white;
+}
