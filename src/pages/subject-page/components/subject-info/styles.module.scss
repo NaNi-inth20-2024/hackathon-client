@@ -1,0 +1,16 @@
+@use "/src/styles/variables" as *;
+
+.subject_info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid $color-mute-gray;
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: $color-primary;
+    }
+}

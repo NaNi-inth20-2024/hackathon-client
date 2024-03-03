@@ -1,0 +1,17 @@
+@use "/src/styles/variables" as *;
+
+.task_list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.task_list__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid $color-mute-gray;
+}
