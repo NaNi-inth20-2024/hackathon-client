@@ -17,9 +17,9 @@ const Header: FC = () => {
     return (
         <div className={styles.header}>
             <h1 className={styles.header__textLogo}>
-                <Link to="/">Grades aggregator</Link>
+                <Link to="/">Scholaster</Link>
             </h1>
-            {userData?.email ? (
+            {userData?.first_name ? (
                 <div className={styles.header__userData}>
                     <>
                         <svg
@@ -34,7 +34,7 @@ const Header: FC = () => {
                         <div className={styles.header__menuContainer}>
                             <HeaderMenu
                                 visible={isMenuOpen}
-                                username={userData?.email}
+                                username={`${userData?.first_name} ${userData?.last_name}`}
                                 onLogout={handleLogout}
                                 onMenuClick={() => setIsMenuOpen(!isMenuOpen)}
                             />

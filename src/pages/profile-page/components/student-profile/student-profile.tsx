@@ -5,23 +5,22 @@ import { OneLineDataRecord } from './components/one-line-data-record/one-line-da
 import styles from './styles.module.scss';
 import 'react-circular-progressbar/dist/styles.css';
 import { DeadlineReminderCard } from './components/deadline-reminder-card/deadline-reminder-card';
+import { useAppSelector } from '@/lib/store/hooks';
 
 const StudentProfile: FC = () => {
+    const userData = useAppSelector((state) => state.user.user);
+
     return (
         <div className={styles.studentProfile}>
             <div className={styles.studentData}>
                 <div className={styles.studentDataSection}>
                     <OneLineDataRecord
                         content={'Name:'}
-                        contentToHighlight={'Bebra Bebrakovsky'}
+                        contentToHighlight={`${userData?.first_name} ${userData?.last_name}`}
                     />
                     <OneLineDataRecord
                         content={'Email:'}
-                        contentToHighlight={'ababababba@gmail.com'}
-                    />
-                    <OneLineDataRecord
-                        content={'Age:'}
-                        contentToHighlight={'37'}
+                        contentToHighlight={userData?.email}
                     />
                 </div>
                 <div className={styles.studentDataSection}>
@@ -29,152 +28,182 @@ const StudentProfile: FC = () => {
                     <ul className={styles.subjectsList}>
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Math'}
+                                contentToHighlight={'69'}
                             />
                         </li>
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Math'}
+                                contentToHighlight={'69'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Math'}
+                                contentToHighlight={'69'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
                             />
                         </li>{' '}
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Math'}
+                                contentToHighlight={'69'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
                             />
                         </li>{' '}
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Math'}
+                                contentToHighlight={'69'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
                             />
                         </li>{' '}
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Math'}
+                                contentToHighlight={'69'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
                             />
                         </li>{' '}
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Math'}
+                                contentToHighlight={'69'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
                             />
                         </li>{' '}
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Math'}
+                                contentToHighlight={'69'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
                             />
                         </li>{' '}
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Math'}
+                                contentToHighlight={'69'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'English'}
+                                contentToHighlight={'98'}
+                            />
+                        </li>
+                        <li>
+                            <OneLineDataRecord
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
                             />
                         </li>{' '}
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Math'}
+                                contentToHighlight={'69'}
                             />
-                        </li>{' '}
+                        </li>
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'English'}
+                                contentToHighlight={'98'}
                             />
-                        </li>{' '}
+                        </li>
                         <li>
                             <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
-                            />
-                        </li>{' '}
-                        <li>
-                            <OneLineDataRecord
-                                content={'Ukr move'}
-                                contentToHighlight={'67'}
+                                content={'Theory of algorithms'}
+                                contentToHighlight={'78'}
                             />
                         </li>
                     </ul>
@@ -194,128 +223,93 @@ const StudentProfile: FC = () => {
                         <ul className={styles.studentsDataSectionItemsList}>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Math'}
+                                    taskName={
+                                        'Regression model of Houses in California'
+                                    }
+                                    deadlineDate={'24.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'English'}
+                                    taskName={'Essay'}
+                                    deadlineDate={'08.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Computer Vision'}
+                                    taskName={'Rotate a triangle'}
+                                    deadlineDate={'14.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
-                                />
-                            </li>{' '}
-                            <li className={styles.deadlineCard}>
-                                <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Backend basics'}
+                                    taskName={'Write Microservices on PHP'}
+                                    deadlineDate={'Never'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
-                                />
-                            </li>{' '}
-                            <li className={styles.deadlineCard}>
-                                <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Math'}
+                                    taskName={
+                                        'Regression model of Houses in California'
+                                    }
+                                    deadlineDate={'24.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
-                                />
-                            </li>{' '}
-                            <li className={styles.deadlineCard}>
-                                <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'English'}
+                                    taskName={'Essay'}
+                                    deadlineDate={'08.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
-                                />
-                            </li>{' '}
-                            <li className={styles.deadlineCard}>
-                                <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Computer Vision'}
+                                    taskName={'Rotate a triangle'}
+                                    deadlineDate={'14.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Backend basics'}
+                                    taskName={'Write Microservices on PHP'}
+                                    deadlineDate={'Never'}
                                 />
-                            </li>{' '}
+                            </li>
+
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Math'}
+                                    taskName={
+                                        'Regression model of Houses in California'
+                                    }
+                                    deadlineDate={'24.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
-                                />
-                            </li>{' '}
-                            <li className={styles.deadlineCard}>
-                                <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'English'}
+                                    taskName={'Essay'}
+                                    deadlineDate={'08.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
-                                />
-                            </li>{' '}
-                            <li className={styles.deadlineCard}>
-                                <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Computer Vision'}
+                                    taskName={'Rotate a triangle'}
+                                    deadlineDate={'14.03.2024'}
                                 />
                             </li>
                             <li className={styles.deadlineCard}>
                                 <DeadlineReminderCard
-                                    subjectName={'Subject name'}
-                                    taskName={'Task name'}
-                                    deadlineDate={'Date'}
+                                    subjectName={'Backend basics'}
+                                    taskName={'Write Microservices on PHP'}
+                                    deadlineDate={'Never'}
                                 />
                             </li>
                         </ul>

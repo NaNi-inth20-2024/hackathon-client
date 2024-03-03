@@ -8,7 +8,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const authApi = createApi({
     reducerPath: 'authApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api/v1/auth' }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: `${import.meta.env.VITE_APP_BASE_URL}/auth`,
+    }),
     endpoints: (builder) => ({
         login: builder.mutation<UserWithToken, LoginPayload>({
             query: (body) => ({
@@ -21,7 +23,11 @@ const authApi = createApi({
             query: (body) => ({
                 url: '/register',
                 method: 'POST',
-                body,
+                body: {
+                    ...body,
+                    'first_name': body.firstName,
+                    'last_name': body.lastName,
+                },
             }),
         }),
         getUser: builder.query<User, void>({

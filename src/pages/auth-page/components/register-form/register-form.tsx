@@ -47,9 +47,9 @@ const RegisterForm: React.FC = () => {
                 <label className={styles.login_form__label}>
                     Role
                     <div className={styles.login_form__radio_group}>
-                        <Radio name="role" value="teacher" required />
+                        <Radio name="role" value="TEACHER" required />
                         Teacher
-                        <Radio name="role" value="student" required />
+                        <Radio name="role" value="STUDENT" required />
                         Student
                     </div>
                 </label>
