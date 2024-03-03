@@ -1,6 +1,4 @@
-import { Task } from '@/common/types';
 import styles from './styles.module.scss';
-import { useState } from 'react';
 import { Button } from '@/components';
 import { useParams } from 'react-router-dom';
 import { useGetTaskQuery } from '@/lib/apis/task-api';
