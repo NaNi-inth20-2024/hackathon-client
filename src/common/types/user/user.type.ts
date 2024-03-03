@@ -1,7 +1,4 @@
-const ROLE = {
-    teacher: 'TEACHER',
-    student: 'STUDENT',
-} as const;
+import { ROLE } from '@/common/enums';
 
 type User = {
     id: string;

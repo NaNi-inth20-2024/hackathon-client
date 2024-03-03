@@ -6,11 +6,14 @@ import styles from './styles.module.scss';
 import 'react-circular-progressbar/dist/styles.css';
 import { DeadlineReminderCard } from './components/deadline-reminder-card/deadline-reminder-card';
 import { useAppSelector } from '@/lib/store/hooks';
+import { useGetUserStatisticsQuery } from '@/lib/apis/users-api';
+import { Navigate } from 'react-router-dom';
 
 const StudentProfile: FC = () => {
     const userData = useAppSelector((state) => state.user.user);
+    const { data: statsData } = useGetUserStatisticsQuery();
 
-    return (
+    return statsData ? (
         <div className={styles.studentProfile}>
             <div className={styles.studentData}>
                 <div className={styles.studentDataSection}>
@@ -209,8 +212,8 @@ const StudentProfile: FC = () => {
                     </ul>
                     <div className={styles.progressCircle}>
                         <ProgressCircle
-                            value={75}
-                            progressText={`${75}%`}
+                            value={statsData?.average_grade ?? 0}
+                            progressText={`${statsData?.average_grade ?? 0}%`}
                             progressDescription={`Your average grade`}
                         />
                     </div>
@@ -318,28 +321,23 @@ const StudentProfile: FC = () => {
                 <div className={styles.studentStatistics}>
                     <div className={styles.progressCircle}>
                         <ProgressCircle
-                            value={10}
-                            progressText={`${10}%`}
+                            value={statsData?.completed_tasks_ratio ?? 0}
+                            progressText={`${statsData?.completed_tasks_ratio ?? 0}%`}
                             progressDescription={`Average quantity of homeworks accomplished across all disciplines`}
                         />
                     </div>
                     <div className={styles.progressCircle}>
                         <ProgressCircle
-                            value={64}
-                            progressText={`${64}%`}
-                            progressDescription={`Your progress in accomplishing all tasks up to this date`}
-                        />
-                    </div>
-                    <div className={styles.progressCircle}>
-                        <ProgressCircle
-                            value={80}
-                            progressText={`${80}%`}
-                            progressDescription={`Your progress in passing all tasks up to this date`}
+                            value={statsData?.completed_subject_ratio ?? 0}
+                            progressText={`${statsData?.completed_subject_ratio ?? 0}%`}
+                            progressDescription={`Your progress in accomplishing (finishing all tasks) all disciplines`}
                         />
                     </div>
                 </div>
             </div>
         </div>
+    ) : (
+        <Navigate to={'/login'} />
     );
 };
 
