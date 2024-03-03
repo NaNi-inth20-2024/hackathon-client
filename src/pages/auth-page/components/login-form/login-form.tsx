@@ -5,6 +5,7 @@ import { useCallback, useRef } from 'react';
 import { useLoginMutation } from '@/lib/apis';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { setUser } from '@/lib/store/slices/user.slice';
+import { useNavigate } from 'react-router-dom';
 
 type LoginPayload = {
     email: string;
@@ -15,6 +16,7 @@ const LoginForm: React.FC = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const [login] = useLoginMutation();
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const handleSubmit = useCallback(
         (event: React.FormEvent<HTMLFormElement>) => {
@@ -26,9 +28,10 @@ const LoginForm: React.FC = () => {
                 .then((user) => {
                     dispatch(setUser(user.user));
                     localStorage.setItem('access_token', user.access);
+                    navigate('/profile');
                 });
         },
-        [dispatch, login],
+        [dispatch, navigate, login],
     );
 
     return (

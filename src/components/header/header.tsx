@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useAppSelector } from '@/lib/store/hooks';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import styles from './styles.module.scss';
 import HeaderMenu from './components/header-menu/header-menu';
@@ -8,10 +8,13 @@ import HeaderMenu from './components/header-menu/header-menu';
 const Header: FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const userData = useAppSelector((state) => state.user.user);
+    const navigate = useNavigate();
+
     const path = useLocation().pathname;
 
     const handleLogout = () => {
         localStorage.clear();
+        navigate('/profile');
     };
 
     return (

@@ -5,6 +5,9 @@ const taskApi = createApi({
     reducerPath: 'taskApi',
     baseQuery: fetchBaseQuery({
         baseUrl: `${import.meta.env.VITE_APP_BASE_URL}/tasks`,
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        },
     }),
     endpoints: (builder) => ({
         getTask: builder.query<Task, number>({
