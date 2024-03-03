@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { userSlice } from './slices/user.slice';
 import { authApi } from '../apis';
+import { usersApi } from '../apis/users-api';
 import { subjectApi } from '../apis/subject-api';
 import { taskApi } from '../apis/task-api';
 import { userApi } from '../apis/user-api';
@@ -9,6 +10,7 @@ const store = configureStore({
     reducer: {
         [userSlice.name]: userSlice.reducer,
         [authApi.reducerPath]: authApi.reducer,
+        [usersApi.reducerPath]: usersApi.reducer,
         [subjectApi.reducerPath]: subjectApi.reducer,
         [taskApi.reducerPath]: taskApi.reducer,
         [userApi.reducerPath]: userApi.reducer,
@@ -17,6 +19,7 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(
             authApi.middleware,
+            usersApi.middleware,
             subjectApi.middleware,
             taskApi.middleware,
             userApi.middleware,
