@@ -14,7 +14,7 @@ const StudentsSection: React.FC = () => {
     const params = useParams<{ id: string }>();
 
     const { data: users, isLoading } = useGetSubjectUsersQuery(+params.id!);
-    const { data: allUsers } = useGetUsersQuery();
+    const { data: allUsers, isLoading: isAllLoading } = useGetUsersQuery();
 
     const [addUserToSubject] = useAddUserToSubjectMutation();
 
