@@ -16,6 +16,7 @@ import { TaskSection } from '@/pages/subject-page/components/task-section/task-s
 import { TaskDetails } from '@/pages/subject-page/components/task-details/task-details.tsx';
 import { SubjectsPage } from '@/pages/subjects-page/subjects-page.tsx';
 import { StudentsSection } from '@/pages/subject-page/components/students-section/students-section.tsx';
+import { ProfilePage } from '@/pages/profile-page/profile-page.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         element: <App />,
                         children: [
                             { path: '/', element: <MainPage /> },
+                            { path: '/profile', element: <ProfilePage /> },
                             { path: '/login', element: <AuthPage /> },
                             { path: '/register', element: <AuthPage /> },
                             { path: '/students', element: <StudentsPage /> },

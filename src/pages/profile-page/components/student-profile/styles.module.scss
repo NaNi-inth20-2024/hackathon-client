@@ -1,0 +1,60 @@
+@use "/src/styles/variables" as *;
+
+.studentProfile {
+    max-width: 100%;
+    background: $color-white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 20px;
+}
+
+.studentData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+}
+
+.closestDeadlines {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.studentDataSection {
+    border-top-style: solid;
+    border-top-color: black;
+    border-top-width: 3px;
+}
+
+.studentStatistics {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(20vw, 100%), 1fr));
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.progressCircle {
+    padding: 15%;
+}
+
+.statsAndDeadlines {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+
+.studentsDataSectionItemsList {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.subjectsList {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 35vh;
+}

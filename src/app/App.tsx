@@ -1,3 +1,4 @@
+import { Header } from '@/components/header/header';
 import { useGetUserQuery } from '@/lib/apis/auth-api';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { setUser } from '@/lib/store/slices/user.slice';
@@ -14,7 +15,18 @@ function App() {
         }
     }, [data, dispatch]);
 
-    return <>{!isLoading && <Outlet />}</>;
+    return (
+        <>
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : (
+                <>
+                    <Header />
+                    <Outlet />
+                </>
+            )}
+        </>
+    );
 }
 
 export default App;
