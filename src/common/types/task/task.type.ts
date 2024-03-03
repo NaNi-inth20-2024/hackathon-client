@@ -2,7 +2,7 @@ import { Grade } from '../grade/grade.type';
 
 type Task = {
     id: number;
-    deadline: Date;
+    deadline: string;
     title: string;
     description: string;
     is_finished: boolean;

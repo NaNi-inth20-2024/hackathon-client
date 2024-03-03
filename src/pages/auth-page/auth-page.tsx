@@ -9,7 +9,7 @@ const AuthPage: React.FC = () => {
 
     return (
         <div className={styles.auth_page}>
-            {location.pathname !== '/login' ? <LoginForm /> : <RegisterForm />}
+            {location.pathname === '/login' ? <LoginForm /> : <RegisterForm />}
         </div>
     );
 };

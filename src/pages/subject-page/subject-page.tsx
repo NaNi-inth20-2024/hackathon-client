@@ -16,7 +16,10 @@ const SubjectPage = () => {
             <NavMenu
                 links={[
                     { title: 'Tasks', path: `/subjects/${params.id}/tasks` },
-                    { title: 'Grades', path: `/subjects/${params.id}/grades` },
+                    {
+                        title: 'Students',
+                        path: `/subjects/${params.id}/students`,
+                    },
                 ]}
             />
             <Outlet />

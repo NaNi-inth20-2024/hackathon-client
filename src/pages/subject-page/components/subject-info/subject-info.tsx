@@ -15,6 +15,10 @@ const SubjectInfo: React.FC<Properties> = ({ subject, className }) => {
             <p>
                 {subject.year} - {subject.semester} semester
             </p>
+            <p>
+                Teacher: {subject.teachers[0].first_name}{' '}
+                {subject.teachers[0].last_name}
+            </p>
         </div>
     );
 };

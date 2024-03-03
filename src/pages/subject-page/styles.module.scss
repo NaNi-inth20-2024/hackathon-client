@@ -5,3 +5,15 @@
     padding: 10px 100px;
     gap: 5px;
 }
+
+.modal_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}

@@ -1,4 +1,4 @@
-import { Subject, Task } from '@/common/types';
+import { Subject, Task, User } from '@/common/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const subjectApi = createApi({
@@ -11,19 +11,44 @@ const subjectApi = createApi({
     }),
     endpoints: (builder) => ({
         getSubjects: builder.query<Subject[], void>({
-            query: () => '',
+            query: () => '/',
         }),
         getSubject: builder.query<Subject, number>({
-            query: (id) => `${id}`,
+            query: (id) => `/${id}`,
         }),
         getSubjectTasks: builder.query<Task[], number>({
-            query: (id) => `${id}/tasks`,
+            query: (id) => `/${id}/tasks`,
         }),
-        addTask: builder.mutation<Task, { subjectId: number; task: Task }>({
+        getSubjectUsers: builder.query<User[], number>({
+            query: (id) => `/${id}/users`,
+        }),
+        addTask: builder.mutation<
+            Task,
+            { subjectId: number; task: Omit<Task, 'id' | 'is_finished'> }
+        >({
             query: ({ subjectId, task }) => ({
-                url: `${subjectId}/addtask`,
+                url: `${subjectId}/addtask/`,
                 method: 'POST',
                 body: task,
+            }),
+        }),
+        createSubject: builder.mutation<
+            Subject,
+            Omit<Subject, 'id' | 'teachers'>
+        >({
+            query: (subject) => ({
+                url: '/',
+                method: 'POST',
+                body: subject,
+            }),
+        }),
+        addUserToSubject: builder.mutation<
+            User,
+            { subjectId: number; userId: number }
+        >({
+            query: ({ subjectId, userId }) => ({
+                url: `${subjectId}/users/${userId}/`,
+                method: 'PUT',
             }),
         }),
     }),
@@ -34,5 +59,8 @@ export const {
     useGetSubjectQuery,
     useGetSubjectTasksQuery,
     useAddTaskMutation,
+    useGetSubjectUsersQuery,
+    useCreateSubjectMutation,
+    useAddUserToSubjectMutation,
 } = subjectApi;
 export { subjectApi };

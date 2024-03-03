@@ -5,14 +5,7 @@ import { useCallback, useRef } from 'react';
 import { useRegisterMutation } from '@/lib/apis';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { setUser } from '@/lib/store/slices/user.slice';
-
-type RegisterPayload = {
-    role: 'teacher' | 'student';
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-};
+import { RegisterPayload } from '@/common/types';
 
 const RegisterForm: React.FC = () => {
     const formRef = useRef<HTMLFormElement>(null);
@@ -47,9 +40,9 @@ const RegisterForm: React.FC = () => {
                 <label className={styles.login_form__label}>
                     Role
                     <div className={styles.login_form__radio_group}>
-                        <Radio name="role" value="teacher" required />
+                        <Radio name="role" value="TEACHER" required />
                         Teacher
-                        <Radio name="role" value="student" required />
+                        <Radio name="role" value="STUDENT" required />
                         Student
                     </div>
                 </label>
@@ -58,7 +51,7 @@ const RegisterForm: React.FC = () => {
                     <Input
                         type="text"
                         placeholder="First Name"
-                        name="firstName"
+                        name="first_name"
                         required
                     />
                 </label>
@@ -68,7 +61,7 @@ const RegisterForm: React.FC = () => {
                     <Input
                         type="text"
                         placeholder="Last Name"
-                        name="lastName"
+                        name="last_name"
                         required
                     />
                 </label>
