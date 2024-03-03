@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
 function App() {
-    const { data } = useGetUserQuery();
+    const { data, isLoading } = useGetUserQuery();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -17,8 +17,14 @@ function App() {
 
     return (
         <>
-            <Header />
-            <Outlet />
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : (
+                <>
+                    <Header />
+                    <Outlet />
+                </>
+            )}
         </>
     );
 }

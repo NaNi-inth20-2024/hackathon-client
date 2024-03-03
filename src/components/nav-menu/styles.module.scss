@@ -1,0 +1,19 @@
+@use "/src/styles/variables" as *;
+
+.nav_menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav_menu__item {
+    padding: 5px 10px;
+    border-radius: 5px 5px 0 0;
+
+    transition:
+        background-color 0.3s ease 0s,
+        color 0.3s ease 0s;
+}
+
+.nav_menu__item_active {
+    border-bottom: 2px solid $color-primary;
+}
