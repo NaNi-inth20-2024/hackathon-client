@@ -25,8 +25,8 @@ const authApi = createApi({
                 method: 'POST',
                 body: {
                     ...body,
-                    'first_name': body.firstName,
-                    'last_name': body.lastName,
+                    'first_name': body.first_name,
+                    'last_name': body.last_name,
                 },
             }),
         }),
