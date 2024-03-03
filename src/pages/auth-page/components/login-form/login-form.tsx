@@ -5,7 +5,7 @@ import { useCallback, useRef } from 'react';
 import { useLoginMutation } from '@/lib/apis';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { setUser } from '@/lib/store/slices/user.slice';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 type LoginPayload = {
     email: string;
@@ -61,6 +61,9 @@ const LoginForm: React.FC = () => {
                         pattern=".{8,}"
                     />
                 </label>
+                <NavLink to={'/register'}>
+                    Do no have an account? Register
+                </NavLink>
                 <Button type="submit" className={styles.login_form__button}>
                     Login
                 </Button>

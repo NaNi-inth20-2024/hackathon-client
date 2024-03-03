@@ -9,7 +9,7 @@ const usersApi = createApi({
     endpoints: (builder) => ({
         getUserStatistics: builder.query<UserStatistics, void>({
             query: () => ({
-                url: `/statistics/`,
+                url: `/statistic`,
                 method: 'GET',
                 headers: new Headers({
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`,

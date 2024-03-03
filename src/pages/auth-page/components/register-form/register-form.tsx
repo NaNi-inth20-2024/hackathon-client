@@ -6,11 +6,13 @@ import { useRegisterMutation } from '@/lib/apis';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { setUser } from '@/lib/store/slices/user.slice';
 import { RegisterPayload } from '@/common/types';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const RegisterForm: React.FC = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const [register] = useRegisterMutation();
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const handleSubmit = useCallback(
         (event: React.FormEvent<HTMLFormElement>) => {
@@ -24,9 +26,10 @@ const RegisterForm: React.FC = () => {
                 .then((user) => {
                     dispatch(setUser(user.user));
                     localStorage.setItem('access_token', user.access);
+                    navigate('/profile');
                 });
         },
-        [dispatch, register],
+        [dispatch, navigate, register],
     );
 
     return (
@@ -85,6 +88,7 @@ const RegisterForm: React.FC = () => {
                         pattern=".{8,}"
                     />
                 </label>
+                <NavLink to={'/login'}>Already have an account? Login</NavLink>
                 <Button type="submit" className={styles.login_form__button}>
                     Sign up
                 </Button>
