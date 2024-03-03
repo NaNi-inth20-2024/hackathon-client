@@ -7,23 +7,26 @@ import 'react-circular-progressbar/dist/styles.css';
 import { DeadlineReminderCard } from './components/deadline-reminder-card/deadline-reminder-card';
 import { useAppSelector } from '@/lib/store/hooks';
 import { useGetUserStatisticsQuery } from '@/lib/apis/users-api';
-import { Navigate } from 'react-router-dom';
 
 const StudentProfile: FC = () => {
     const userData = useAppSelector((state) => state.user.user);
     const { data: statsData } = useGetUserStatisticsQuery();
 
-    return statsData ? (
+    return (
         <div className={styles.studentProfile}>
             <div className={styles.studentData}>
                 <div className={styles.studentDataSection}>
                     <OneLineDataRecord
                         content={'Name:'}
-                        contentToHighlight={`${userData?.first_name} ${userData?.last_name}`}
+                        contentToHighlight={
+                            userData?.first_name
+                                ? `${userData?.first_name} ${userData?.last_name}`
+                                : 'unknown'
+                        }
                     />
                     <OneLineDataRecord
                         content={'Email:'}
-                        contentToHighlight={userData?.email}
+                        contentToHighlight={userData?.email ?? 'unknown'}
                     />
                 </div>
                 <div className={styles.studentDataSection}>
@@ -336,8 +339,6 @@ const StudentProfile: FC = () => {
                 </div>
             </div>
         </div>
-    ) : (
-        <Navigate to={'/login'} />
     );
 };
 
